@@ -49,7 +49,6 @@ export const NewPasswordForm = () => {
     });
   };
 
-  console.log(token);
 
   return (
     <CardWrapper

@@ -24,6 +24,7 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
     data: {
       email,
       name,
+      image: `https://api.dicebear.com/5.x/initials/svg?seed=${name}`,
       password: hashedPassword,
     },
   });

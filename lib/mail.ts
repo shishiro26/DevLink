@@ -17,7 +17,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
     subject: "Confirm Your Email Address",
     html: `
       <p>Thank you for signing up! Please click the following link to confirm your email address:</p>
-      <a href="${confirmationLink}">${confirmationLink}</a>
+      <a href="${confirmationLink}">Confirmation Link</a>
     `,
   };
 
@@ -46,7 +46,7 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
     subject: "Reset Your Password",
     html: `
       <p>We received a request to reset your password. Click the link below to reset your password:</p>
-      <a href="${resetLink}">${resetLink}</a>
+      <a href="${resetLink}">Reset Link</a>
       <p>If you didn't request a password reset, you can ignore this email.</p>
     `,
   };
