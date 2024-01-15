@@ -1,4 +1,4 @@
-import Sidebar from "@/app/(protected)/_components/Sidebar";
+import Sidebar from "@/app/(protected)/_components/Navbar";
 
 export default function ProtectedLayout({
   children,
@@ -6,7 +6,7 @@ export default function ProtectedLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className="flex flex-row">
       <Sidebar />
       {children}
     </div>
