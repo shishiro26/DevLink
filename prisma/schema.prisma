@@ -12,12 +12,18 @@ datasource db {
 
 model User {
   id            String    @id @default(cuid()) @map("_id")
+  firstName     String?
+  lastName      String?
   name          String
   email         String    @unique
+  bio           String?
   emailVerified DateTime?
   image         String?
   password      String?
+  isOAuth       Boolean   @default(false)
   accounts      Account[]
+  skills        String[]
+  links         String[]
 }
 
 model Account {

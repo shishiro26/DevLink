@@ -38,3 +38,49 @@ export const NewPasswordSchema = z.object({
     message: "Minimum of 6 characters required",
   }),
 });
+
+export const InfoSchema = z
+  .object({
+    firstName: z.optional(z.string()),
+    lastName: z.optional(z.string()),
+    name: z.optional(z.string()),
+    email: z.optional(z.string().email()),
+    password: z.optional(z.string().min(6)),
+    newPassword: z.optional(z.string().min(6)),
+    skills: z.optional(z.string()),
+    links: z.optional(
+      z.string().refine(
+        (value) => {
+          return value.startsWith("http://") || value.startsWith("https://");
+        },
+        { message: 'Links must start with "http://" or "https://"' }
+      )
+    ),
+    bio: z.optional(z.string()),
+  })
+  .refine(
+    (data) => {
+      if (data.password && !data.newPassword) {
+        return false;
+      }
+
+      return true;
+    },
+    {
+      message: "New password is required!",
+      path: ["newPassword"],
+    }
+  )
+  .refine(
+    (data) => {
+      if (data.newPassword && !data.password) {
+        return false;
+      }
+
+      return true;
+    },
+    {
+      message: "Password is required!",
+      path: ["password"],
+    }
+  );

@@ -28,7 +28,7 @@ const UserButton = () => {
         <DropdownMenuItem>
           <div className="cursor-pointer flex">
             <User className="h-4 w-4 mr-2 cursor-pointer" />
-            <Link href="/profile">Profile</Link>
+            <Link href={`/profile/@${user?.name}`}>Profile</Link>
           </div>
         </DropdownMenuItem>
         <LogoutButton>

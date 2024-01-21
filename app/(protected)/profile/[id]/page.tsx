@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import { currentUser } from "@/lib/auth";
+import Profile from "../_components/proflle";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const user = await currentUser();
@@ -10,7 +11,6 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const page = () => {
-  return <div>page</div>;
+  return <Profile />;
 };
-
 export default page;

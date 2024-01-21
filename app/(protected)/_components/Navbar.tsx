@@ -5,8 +5,12 @@ import UserButton from "@/app/(protected)/_components/UserButton";
 import { navItems } from "@/constants";
 import { Search } from "lucide-react";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const Sidebar = () => {
+  const pathname = usePathname();
+  const isActive = (path: string) => path === pathname;
+
   const controls = useAnimation();
 
   const sidebarVariants = {
@@ -29,7 +33,7 @@ const Sidebar = () => {
   return (
     <motion.aside
       id="separator-sidebar"
-      className={`z-40 h-screen transition-transform bg-[#83A2FF]`}
+      className={`z-40  transition-transform bg-[#83A2FF] h-screen`}
       aria-label="Sidebar"
       initial="hidden"
       animate={controls}
@@ -54,7 +58,11 @@ const Sidebar = () => {
             <motion.li key={item.name} variants={listItemVariants}>
               <Link href={item.path}>
                 <div className="flex flex-col gap-2 items-center text-gray-700 p-2 rounded-lg group">
-                  <div className="hover:bg-[#7D80DA] w-14 flex rounded-full justify-center p-1 transition-all nav__mg04a">
+                  <div
+                    className={`w-14 flex rounded-full justify-center p-1 transition-all nav__mg04a  hover:bg-[#7D80DA] ${
+                      isActive(item.path) && "bg-[#FF5954] hover:bg-[#7D80DA]"
+                    }`}
+                  >
                     {item.icon && (
                       <item.icon className="nav__mg03a text-white" />
                     )}

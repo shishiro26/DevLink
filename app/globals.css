@@ -239,6 +239,12 @@
   }
 }
 
+.tooltip__div:hover {
+  .tooltip__p {
+    color: white;
+  }
+}
+
 .glow {
   top: -10%;
   left: -10%;
