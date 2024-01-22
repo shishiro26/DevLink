@@ -33,7 +33,7 @@ const Sidebar = () => {
   return (
     <motion.aside
       id="separator-sidebar"
-      className={`z-40  transition-transform bg-[#83A2FF] h-screen`}
+      className={`fixed  w-20 xl:w-20 2xl:w-32 top-0 left-0 z-40 h-full transition-transform bg-[#83A2FF]`}
       aria-label="Sidebar"
       initial="hidden"
       animate={controls}
@@ -41,7 +41,7 @@ const Sidebar = () => {
     >
       <div className="h-full py-4 overflow-y-auto">
         <motion.ul
-          className="space-y-2 font-medium flex flex-col items-center"
+          className="space-y-2 2xl:space-y-6 font-medium flex flex-col items-center"
           initial="hidden"
           animate="visible"
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
@@ -49,9 +49,9 @@ const Sidebar = () => {
           <motion.li variants={listItemVariants}>
             <Link
               href={"/search"}
-              className="h-12 w-12 bg-[#FF5964] flex items-center justify-center rounded-lg"
+              className="h-12 w-12 2xl:h-14 2xl:w-14 bg-[#FF5964] flex items-center justify-center rounded-lg"
             >
-              <Search className="rounded-full text-white" />
+              <Search className="rounded-full text-white 2xl:h-10 2xl:w-10" />
             </Link>
           </motion.li>
           {navItems.map((item) => (
@@ -64,10 +64,10 @@ const Sidebar = () => {
                     }`}
                   >
                     {item.icon && (
-                      <item.icon className="nav__mg03a text-white" />
+                      <item.icon className="nav__mg03a text-white 2xl:h-10 2xl:w-10" />
                     )}
                   </div>
-                  <span className="text-[0.9vw] whitespace-nowrap text-white">
+                  <span className="text-xs md:text-[0.8vw] lg:text-[0.7rem] xl:text-[0.8vw] 2xl:text-sm whitespace-nowrap text-white">
                     {item.name}
                   </span>
                 </div>

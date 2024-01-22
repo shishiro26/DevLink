@@ -6,7 +6,7 @@ export default function ProtectedLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-row">
+    <div>
       <Sidebar />
       {children}
     </div>

@@ -16,10 +16,10 @@ const Profile = () => {
   const user = useCurrentUser();
   return (
     <>
-      <div className="container mx-auto my-4">
+      <div className="ml-24 mx-auto my-4">
         <div className="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
           <div className="col-span-4 sm:col-span-3">
-            <div className="bg-white shadow rounded-lg p-6">
+            <div className="bg-white shadow rounded-lg p-6 h-[92vh] overflow-y-scroll">
               <div className="flex flex-col items-center">
                 <Image
                   src={`${user?.image}`}
@@ -49,11 +49,11 @@ const Profile = () => {
                   </TooltipProvider>
                 </Link>
               </div>
-              <div className="flex flex-col text-black">
+              <div className="flex flex-col text-black h-fit">
                 <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">
                   Skills
                 </span>
-                <ul className=" h-80 overflow-y-scroll">
+                <ul className="grid grid-cols-2 sm:grid-cols-2">
                   {user?.skills.map((skill: any) => {
                     const icon = skillIcons(skill);
                     return (
